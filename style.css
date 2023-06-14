@@ -100,11 +100,15 @@ body {
   left: 0%;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-out-button 0.4s;
 }
 
 .light #switch button {
-  right: 0%;
-  left: initial;
+  animation: slide-in-button 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--social-link-hover-color);
 }
 
 #switch span {
@@ -187,6 +191,7 @@ footer {
   font-size: 14px;
 }
 
+/* alteração de background para dispositivos maiores que 700px - melhorando responsividade */
 @media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop-dark.jpg);
@@ -194,5 +199,24 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animação de slide para o botão dark/ligth */
+@keyframes slide-in-button {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out-button {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
