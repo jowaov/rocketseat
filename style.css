@@ -103,10 +103,12 @@ body {
   animation: slide-out-button 0.4s;
 }
 
+/* animação feita com regra at @keyframes */
 .light #switch button {
   animation: slide-in-button 0.4s forwards;
 }
 
+/* animação de hover ao passar mouse em cima do botão/switch */
 #switch button:hover {
   outline: 8px solid var(--social-link-hover-color);
 }
