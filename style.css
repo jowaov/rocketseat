@@ -129,7 +129,7 @@ ul {
   list-style: none; /* remove o estilo (pontinhos) da lista */
   display: flex;
   flex-direction: column; /* transforma a direção do flex em colunas, ao invés de lado a lado na mesma linha*/
-  gap: 16px; /* adiciona um gap entre os filhos */
+  gap: 16px; /* adiciona um gap entre os filhos/listas */
   padding: 24px 0;
 }
 
@@ -202,7 +202,7 @@ footer {
   }
 }
 
-/* animação de slide para o botão dark/ligth */
+/* animação de slide in para o botão dark/light */
 @keyframes slide-in-button {
   from {
     left: 0;
@@ -212,6 +212,7 @@ footer {
   }
 }
 
+/* animação de slide out para o botão dark/light */
 @keyframes slide-out-button {
   from {
     left: 50%;
