@@ -1,0 +1,186 @@
+* {
+  /* removendo margin e padding padrão do navegador e retendo o tamanho dos pixels com box-sizing na border-box */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* váriaveis para serem usadas no modo dark/light no browser, send root a versão padrão do site */
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile-dark.jpg);
+  --border-color: rgba(255, 255, 255, 0.5);
+  --border-background-color: rgba(255, 255, 255, 0.1);
+  --border-background-hover-color: rgba(255, 255, 255, 0.05);
+  --social-link-hover-color: rgba(255, 255, 255, 0.2);
+  --switch-button-icon: url(./assets/moon-stars.svg);
+  --switch-background-color: rgba(255, 255, 255, 0.1);
+  --switch-border-color: rgba(255, 255, 255, 0.5);
+}
+
+.light {
+  /* váriaveis para serem usadas no modo dark/light no browser, sendo ".light" uma classe aplicada no elemento <html> para a versão light do site */
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --border-color: rgba(0, 0, 0, 0.5);
+  --border-background-color: rgba(0, 0, 0, 0.05);
+  --border-background-hover-color: rgba(0, 0, 0, 0.1);
+  --social-link-hover-color: rgba(0, 0, 0, 0.1);
+  --switch-button-icon: url(./assets/sun.svg);
+  --switch-background-color: rgba(0, 0, 0, 0.05);
+  --switch-border-color: rgba(0, 0, 0, 0.5);
+}
+
+body * {
+  /* aplicando o uso da fonte importada do google no body inteiro */
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  /* 
+  background: url(./assets/bg-mobile-dark.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  */
+
+  /* shorthand abaixo */
+  background: var(--bg-url) no-repeat top center / cover;
+}
+
+#container {
+  /* uma caxinha com largura especifica e alinhamento automático */
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/* profile */
+
+#profile {
+  /* aplicando padding e align para todo o container profile */
+  padding: 24px;
+  text-align: center;
+}
+
+#profile img {
+  /* como redimensionar uma imagem e alinhar ao centro da caixa com o display block*/
+  width: 112px;
+  margin: auto;
+  display: block;
+}
+
+#profile p {
+  /* aplicando detalhes da fonte para o elemento <p> dentro da div-id #profile */
+  font-weight: 500;
+  font-size: 16px; /*por padrão navegadores já possuem font-size de 16px */
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  /* botão do switch/icon */
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-button-icon) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0%;
+  left: initial;
+}
+
+#switch span {
+  /* barra do switch */
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--switch-background-color);
+  border: 1px solid var(--switch-border-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+
+ul {
+  list-style: none; /* remove o estilo (pontinhos) da lista */
+  display: flex;
+  flex-direction: column; /* transforma a direção do flex em colunas, ao invés de lado a lado na mesma linha*/
+  gap: 16px; /* adiciona um gap entre os filhos */
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex; /* o flex faz com que o conteudo do elemento (a) preencha o (li) inteiro, no caso fazendo com que o link seja clicavel no li inteiro, e não só no texto do (a)*/
+  align-items: center; /* alinha os elementos do (li) ao centro da sua própria "caixa/linha" (no caso do display flex)*/
+  justify-content: center; /* alinha os elementos do (li) ao centro do container*/
+
+  padding: 16px 24px;
+
+  background: var(--border-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  /* -webkit adiciona compatibilidade a recursos em navegadores desatualizados */
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none; /* remove decoração do texto, por ex: sublinhado de links */
+  font-weight: 500;
+  transition: background 0.3s; /* aqui podemos fazer uma transição de um elemento, ou de todos usando o (all) */
+}
+
+ul li a:hover {
+  /* ao passar o mouse em cima o efeito abaixo será aplicado */
+  background: var(--border-background-hover-color);
+  border: 1.5px solid var(--text-color);
+}
+
+/* links + icones */
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px; /* cada elemento terá seu padding de 16px, assim não precisando usar o gap: 16px */
+  border-radius: 50%; /*transforma a borda de quadrado para circulo */
+  transition: background 0.3s;
+}
+
+#social-links a:hover {
+  background: var(--social-link-hover-color);
+  padding: 16px;
+}
+
+/* rodapé */
+
+footer {
+  /* rodapé da página */
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
